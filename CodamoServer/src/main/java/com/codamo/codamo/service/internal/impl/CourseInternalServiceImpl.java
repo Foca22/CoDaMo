@@ -8,6 +8,8 @@ import com.codamo.codamo.service.internal.CourseInternalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Optional;
 
 @Service
@@ -34,7 +36,7 @@ public class CourseInternalServiceImpl implements CourseInternalService {
                 project.getPrice(),
                 project.getDiscount(),
                 project.getNewPrice(),
-                project.getDiscountExpiration(),
+                LocalDateTime.ofInstant(project.getDiscountExpiration(), ZoneId.systemDefault()),
                 project.getCourseState()
         );
     }

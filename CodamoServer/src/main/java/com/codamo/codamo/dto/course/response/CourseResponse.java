@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -17,6 +17,6 @@ public class CourseResponse {
     private float price;
     private float discount;
     private float newPrice;
-    private Instant discountExpiration;
+    private LocalDateTime discountExpiration;
     private CourseState courseState;
 }
