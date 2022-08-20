@@ -1,8 +1,16 @@
-<div class="flex items-center justify-between p-8">
+<div class="flex items-center justify-between p-8 mb-8 border-b border-gray-800">
   <div>
-    <a routerLink="" class="font-bold text-lg hover:text-white text-gray-100">CoDaMo</a>
+    <a routerLink="/" class="font-bold text-lg hover:text-white text-gray-100 cursor-pointer">CoDaMo - Admin Panel</a>
   </div>
-  <div>
-    <a routerLink="courses" class="text-gray-300 font-semibold text-lg hover:underline">Courses</a>
+  <div class="flex items-center">
+    <div>
+      <a routerLink="/courses" class="pr-4 text-gray-300 font-semibold  hover:underline cursor-pointer">Courses</a>
+    </div>
+    <div>
+      <a routerLink="/users" class="pr-4 text-gray-300 font-semibold  hover:underline cursor-pointer">Users</a>
+    </div>
+    <div>
+      <a routerLink="/statistics" class="pr-4 text-gray-300 font-semibold  hover:underline cursor-pointer">Statistics</a>
+    </div>
   </div>
 </div>

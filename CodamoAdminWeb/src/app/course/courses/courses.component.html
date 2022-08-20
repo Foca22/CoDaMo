@@ -3,12 +3,12 @@
     <h1 class="font-bold text-gray-300 text-xl">Courses</h1>
   </div>
 
-  <a routerLink="/courses/{{course.id}}" class="p-8 hover:bg-gray-800 cursor-pointer" *ngFor="let course of courses">
+  <a routerLink="/courses/{{course.id}}" class="px-8 py-4 hover:bg-gray-800 cursor-pointer" *ngFor="let course of courses">
     <div class="pb-2">
       <span class="font-medium text-gray-400">{{course.title}}</span>
     </div>
     <div class="flex flex-column">
-      <span class="font-small text-gray-500">{{course.description}}</span>
+      <span class="font-small text-gray-500">{{course.shortDescription}}</span>
     </div>
   </a>
 

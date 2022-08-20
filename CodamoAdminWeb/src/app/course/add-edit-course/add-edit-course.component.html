@@ -1,0 +1,85 @@
+<div class="grid grid-cols-1 lg:grid-cols-2 divide">
+  <div class="flex flex-col items-stretch pb-16">
+    <div class="px-8 pb-8">
+      <h1 class="font-bold text-gray-300 text-xl">{{isUpdate ? 'Update Course' : 'Create new Course'}}</h1>
+    </div>
+    <form [formGroup]="courseForm" (ngSubmit)="createOrUpdateCourse()">
+      <div class="flex flex-col items-stretch px-8 pb-4">
+        <label for="course-title" class="pb-1 px-2 font-medium text-sm text-gray-500">Title </label>
+        <input class="bg-gray-800 text-gray-200 rounded h-12 px-2" id="course-title" type="text"
+               formControlName="courseTitle">
+
+        <div
+          *ngIf="courseForm.controls['courseTitle'].invalid && (courseForm.controls['courseTitle'].dirty || courseForm.controls['courseTitle'].touched)"
+          class="alert">
+          <div *ngIf="courseForm.controls['courseTitle'].errors.required">
+            <span class="text-sm text-red-500 font-bold py-2">Title is required</span>
+          </div>
+          <div *ngIf="courseForm.controls['courseTitle'].errors.minlength">
+            <span class="text-sm text-red-500 font-medium py-2">Title needs to have at least 5 characters</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-stretch px-8 pb-4">
+        <label for="course-short-description" class="pb-1 px-2 font-medium text-sm text-gray-500">Short
+          Description</label>
+        <input id="course-short-description" class="bg-gray-800 text-gray-200 rounded h-12 px-2" type="text"
+               formControlName="courseShortDescription">
+
+        <div
+          *ngIf="courseForm.controls['courseShortDescription'].invalid && (courseForm.controls['courseShortDescription'].dirty || courseForm.controls['courseShortDescription'].touched)"
+          class="alert">
+          <div *ngIf="courseForm.controls['courseShortDescription'].errors.required">
+            <span class="text-sm text-red-500 font-medium py-2">Short Description is required</span>
+          </div>
+          <div *ngIf="courseForm.controls['courseShortDescription'].errors.minlength">
+            <span
+              class="text-sm text-red-500 font-medium py-2">Short Description needs to have at least 20 characters</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-stretch px-8 pb-4">
+        <label for="course-description" class="pb-1 px-2 font-medium text-sm text-gray-500">Description</label>
+        <div class="px-2 py-4 border border-gray-800 rounded text-gray-200 bg-gray-800">
+          <quill-editor
+            id="course-description"
+            formControlName="courseDescription"
+            [placeholder]="''"
+            theme="bubble"></quill-editor>
+        </div>
+        <div
+          *ngIf="courseForm.controls['courseDescription'].invalid && (courseForm.controls['courseDescription'].dirty || courseForm.controls['courseDescription'].touched)"
+          class="alert">
+          <div *ngIf="courseForm.controls['courseDescription'].errors.required">
+            <span class="text-sm text-red-500 font-medium py-2">Description is required</span>
+          </div>
+          <div *ngIf="courseForm.controls['courseDescription'].errors.minlength">
+            <span class="text-sm text-red-500 font-medium py-2">Description needs to have at least 20 characters</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-8 pt-4">
+        <button [disabled]="!courseForm.valid" type="submit"
+                class="bg-gray-400 text-gray-900 rounded px-4 py-2 hover:bg-gray-500 font-medium">
+          {{isUpdate ? 'Update' : 'Create'}} Course
+        </button>
+      </div>
+
+    </form>
+  </div>
+  <div class="px-8 pb-8">
+    <div class="pb-4">
+      <h1 class="font-bold text-gray-100 text-3xl text-center">{{getDraftTitle()}}</h1>
+    </div>
+    <div class="pb-8">
+      <h2 class="font-medium text-gray-300 text-center">{{getDraftShortDescription()}}</h2>
+    </div>
+
+    <quill-view-html class="text-gray-300 p-0"
+                     [content]="getDraftDescription()"
+                     theme="snow"></quill-view-html>
+  </div>
+</div>

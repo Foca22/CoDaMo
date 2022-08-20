@@ -1,16 +1,16 @@
 <div *ngIf="course" class="flex flex-col items-stretch">
   <div class="px-8 pb-4">
-    <h1 class="font-bold text-gray-100 text-3xl">{{course.title}}</h1>
+    <h1 class="font-bold text-gray-100 text-3xl text-center">{{course.title}}</h1>
   </div>
-  <div class="flex flex-column px-8 pb-8">
-    <span class="font-medium text-gray-300">{{course.shortDescription}}</span>
+  <div class="px-8 pb-8">
+    <h2 class="font-medium text-gray-200 text-center">{{course.shortDescription}}</h2>
   </div>
 
   <div class="px-8 pb-8">
-    <quill-view-html class="text-gray-100" [content]="course.description ? course.description : ''" theme="snow"></quill-view-html>
+    <quill-view-html class="text-gray-300 text-center" [content]="course.description ? course.description : ''" theme="snow"></quill-view-html>
   </div>
 
-  <div class="flex items-center px-8">
+  <div class="flex justify-center items-center px-8">
     <a routerLink="/courses/{{course.id}}/edit" class="pr-4 hover:underline text-gray-300 text-sm">Edit Course</a>
     <button class="hover:underline text-gray-300 text-sm">Delete Course</button>
   </div>
@@ -19,21 +19,55 @@
     <hr class="border-gray-800">
   </div>
 
-  <div class="px-8 flex pb-8">
-    <span class="pr-4 text-gray-400 font-medium">Price <span class="text-gray-300 font-bold">{{course.price}}</span> $</span>
-    <span class="pr-4 text-gray-400 font-medium">Discount <span class="text-gray-300 font-bold">{{course.discount}}</span> %</span>
-    <span class="text-gray-400 font-medium">New Price <span class="text-gray-300 font-bold">{{course.newPrice}}</span> $</span>
+  <div class="px-8 flex flex-col pb-8 items-center">
+    <h2 class="text-gray-100 fond-semibold text-lg pb-4">Course Details</h2>
+    <span class="pb-2 text-gray-400 font-medium"><span class="text-gray-300 font-bold">6</span> chapters</span>
+    <span class="pb-2 text-gray-400 font-medium"><span class="text-gray-300 font-bold">35</span> lessons</span>
+    <span class="pb-2 text-gray-400 font-medium"><span class="text-gray-300 font-bold">14</span> documentation pages</span>
+    <span class="pb-2 text-gray-400 font-medium"><span class="text-gray-300 font-bold">11</span> exercises</span>
+    <span class="pb-2 text-gray-400 font-medium"><span class="text-gray-300 font-bold">4</span> project based exercises</span>
+    <span class="text-gray-400 font-medium"><span class="text-gray-300 font-bold">5</span> quizzes</span>
   </div>
 
-  <div class="flex items-center px-8">
-    <a routerLink="/courses/{{course.id}}/price" class="pr-4 hover:underline text-gray-300 text-sm">Update Price</a>
+  <div class="flex items-center px-8 justify-center">
+    <a routerLink="/courses/{{course.id}}/lesson-editor" class="hover:underline text-gray-300 text-sm">Chapters and Lessons</a>
   </div>
 
   <div class="p-8">
     <hr class="border-gray-800">
   </div>
 
-  <div class="flex flex-col items-stretch px-8">
-    <h2 class="text-gray-100 fond-semibold text-lg">Lessons</h2>
+  <div class="px-8 flex flex-col pb-8 items-center">
+    <h2 class="text-gray-100 fond-semibold text-lg pb-4">Enrollment Status</h2>
+    <span class="pb-2 text-gray-400 font-medium"><span class="text-gray-300 font-bold">12</span> total participants</span>
+    <span class="pb-2 text-gray-400 font-medium"><span class="text-gray-300 font-bold">8</span> in progress </span>
+    <span class="text-gray-400 font-medium"><span class="text-gray-300 font-bold">4</span> finished</span>
+  </div>
+
+  <div class="flex items-center px-8 justify-center">
+    <a routerLink="/courses/{{course.id}}/enrollment" class="hover:underline text-gray-300 text-sm">Details</a>
+  </div>
+
+  <div class="p-8">
+    <hr class="border-gray-800">
+  </div>
+
+  <div class="px-8 flex flex-col pb-8 items-center">
+    <h2 class="text-gray-100 fond-semibold text-lg pb-4">Pricing</h2>
+    <span class="pb-2 text-gray-400 font-medium">Price <span class="text-gray-300 font-bold">{{course.price}}</span> $</span>
+    <span class="pb-2 text-gray-400 font-medium">Discount <span class="text-gray-300 font-bold">{{course.discount}}</span> %</span>
+    <span class="text-gray-400 font-medium">New Price <span class="text-gray-300 font-bold">{{course.newPrice}}</span> $</span>
+  </div>
+
+  <div class="flex items-center px-8 justify-center">
+    <a routerLink="/courses/{{course.id}}/price" class="hover:underline text-gray-300 text-sm">Update Price</a>
+  </div>
+
+  <div class="p-8">
+    <hr class="border-gray-800">
+  </div>
+
+  <div class="flex flex-col px-8 items-center">
+    <a routerLink="/courses/{{course.id}}/lesson-editor" class="text-gray-100 fond-semibold text-lg hover:underline">Chapters and Lessons</a>
   </div>
 </div>

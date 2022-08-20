@@ -8,10 +8,9 @@ import {CoursesComponent} from './course/courses/courses.component';
 import {CourseComponent} from './course/course/course.component';
 import {MainComponent} from './main/main.component';
 import {QuillModule} from 'ngx-quill';
-import {AddCourseComponent} from './course/add-course/add-course.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HeaderComponent} from './main/header/header.component';
-import {EditCourseComponent} from './course/edit-course/edit-course.component';
+import { AddEditCourseComponent } from './course/add-edit-course/add-edit-course.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +18,8 @@ import {EditCourseComponent} from './course/edit-course/edit-course.component';
     CoursesComponent,
     CourseComponent,
     MainComponent,
-    AddCourseComponent,
     HeaderComponent,
-    EditCourseComponent,
+    AddEditCourseComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,15 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {CoursesComponent} from './course/courses/courses.component';
 import {CourseComponent} from './course/course/course.component';
 import {MainComponent} from './main/main.component';
-import {AddCourseComponent} from './course/add-course/add-course.component';
-import {EditCourseComponent} from './course/edit-course/edit-course.component';
+import {AddEditCourseComponent} from './course/add-edit-course/add-edit-course.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'courses', component: CoursesComponent },
-  { path: 'courses/create', component: AddCourseComponent },
+  { path: 'courses/create', component: AddEditCourseComponent },
   { path: 'courses/:id', component: CourseComponent },
-  { path: 'courses/:id/edit', component: EditCourseComponent }
+  { path: 'courses/:id/edit', component: AddEditCourseComponent }
 ];
 
 
