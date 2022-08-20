@@ -1,9 +1,39 @@
 <div *ngIf="course" class="flex flex-col items-stretch">
-  <div class="p-8">
-    <h1 class="font-bold text-gray-300 text-xl">{{course.title}}</h1>
+  <div class="px-8 pb-4">
+    <h1 class="font-bold text-gray-100 text-3xl">{{course.title}}</h1>
   </div>
   <div class="flex flex-column px-8 pb-8">
-    <span class="font-small text-gray-400">{{course.description}}</span>
+    <span class="font-medium text-gray-300">{{course.shortDescription}}</span>
   </div>
 
+  <div class="px-8 pb-8">
+    <quill-view-html class="text-gray-100" [content]="course.description ? course.description : ''" theme="snow"></quill-view-html>
+  </div>
+
+  <div class="flex items-center px-8">
+    <a routerLink="/courses/{{course.id}}/edit" class="pr-4 hover:underline text-gray-300 text-sm">Edit Course</a>
+    <button class="hover:underline text-gray-300 text-sm">Delete Course</button>
+  </div>
+
+  <div class="p-8">
+    <hr class="border-gray-800">
+  </div>
+
+  <div class="px-8 flex pb-8">
+    <span class="pr-4 text-gray-400 font-medium">Price <span class="text-gray-300 font-bold">{{course.price}}</span> $</span>
+    <span class="pr-4 text-gray-400 font-medium">Discount <span class="text-gray-300 font-bold">{{course.discount}}</span> %</span>
+    <span class="text-gray-400 font-medium">New Price <span class="text-gray-300 font-bold">{{course.newPrice}}</span> $</span>
+  </div>
+
+  <div class="flex items-center px-8">
+    <a routerLink="/courses/{{course.id}}/price" class="pr-4 hover:underline text-gray-300 text-sm">Update Price</a>
+  </div>
+
+  <div class="p-8">
+    <hr class="border-gray-800">
+  </div>
+
+  <div class="flex flex-col items-stretch px-8">
+    <h2 class="text-gray-100 fond-semibold text-lg">Lessons</h2>
+  </div>
 </div>

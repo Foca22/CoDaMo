@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateCourseRequest {
     private String title;
+    private String shortDescription;
     private String description;
 }

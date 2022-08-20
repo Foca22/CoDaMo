@@ -1,4 +1,5 @@
-export interface CreateCourseRequest {
+export interface UpdateCourseRequest {
+  id: string;
   title: string;
   shortDescription: string;
   description: string;

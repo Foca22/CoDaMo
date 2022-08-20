@@ -32,6 +32,7 @@ public class CourseInternalServiceImpl implements CourseInternalService {
         return new CourseResponse(
                 project.getId(),
                 project.getTitle(),
+                project.getShortDescription(),
                 project.getDescription(),
                 project.getPrice(),
                 project.getDiscount(),

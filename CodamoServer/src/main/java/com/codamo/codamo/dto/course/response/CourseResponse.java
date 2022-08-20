@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 public class CourseResponse {
     private String id;
     private String title;
+    private String shortDescription;
     private String description;
     private float price;
     private float discount;

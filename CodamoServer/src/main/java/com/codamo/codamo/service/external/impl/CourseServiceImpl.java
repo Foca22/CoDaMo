@@ -29,6 +29,7 @@ public class CourseServiceImpl implements CourseService {
     public CourseResponse createCourse(CreateCourseRequest createCourseRequest) {
         Course course = new Course();
         course.setTitle(createCourseRequest.getTitle());
+        course.setShortDescription(createCourseRequest.getShortDescription());
         course.setDescription(createCourseRequest.getDescription());
         Course savedCourse = courseRepo.save(course);
 
@@ -53,6 +54,7 @@ public class CourseServiceImpl implements CourseService {
     public CourseResponse updateCourse(UpdateCourseRequest updateCourseRequest) throws CourseNotFoundException {
         Course course = courseInternalService.findCourseById(updateCourseRequest.getId());
         course.setTitle(updateCourseRequest.getTitle());
+        course.setShortDescription(updateCourseRequest.getShortDescription());
         course.setDescription(updateCourseRequest.getDescription());
         course = courseRepo.save(course);
 

@@ -1,0 +1,59 @@
+<div *ngIf="!editCourseForm">
+  <span>Loading</span>
+</div>
+
+<div *ngIf="editCourseForm" class="flex flex-col items-stretch">
+  <div class="p-8">
+    <h1 class="font-bold text-gray-300 text-xl">Create new Course</h1>
+  </div>
+  <form [formGroup]="editCourseForm" (ngSubmit)="editCourse()">
+    <div class="flex flex-col items-stretch px-8 pb-4  max-w-xl">
+      <label for="course-title" class="px-2 pb-1 font-medium text-sm text-gray-500">Title </label>
+      <input class="bg-gray-800 text-gray-200 rounded h-12 px-2 " id="course-title" type="text"
+             formControlName="courseTitle">
+
+      <div
+        *ngIf="editCourseForm.controls['courseTitle'].invalid && (editCourseForm.controls['courseTitle'].dirty || editCourseForm.controls['courseTitle'].touched)"
+        class="alert">
+        <div *ngIf="editCourseForm.controls['courseTitle'].errors.required">
+          <span class="text-sm text-red-500 font-bold py-2">Title is required</span>
+        </div>
+        <div *ngIf="editCourseForm.controls['courseTitle'].errors.minlength">
+          <span class="text-sm text-red-500 font-medium py-2">Title needs to have at least 5 characters</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-stretch px-8 pb-4  max-w-xl">
+      <label for="course-description" class="pb-1 px-2 font-medium text-sm text-gray-500">Description</label>
+      <input id="course-description" class="px-2 bg-gray-800 text-gray-200 rounded h-12" type="text"
+             formControlName="courseDescription">
+
+      <div
+        *ngIf="editCourseForm.controls['courseDescription'].invalid && (editCourseForm.controls['courseDescription'].dirty || editCourseForm.controls['courseDescription'].touched)"
+        class="alert">
+        <div *ngIf="editCourseForm.controls['courseDescription'].errors.required">
+          <span class="text-sm text-red-500 font-medium py-2">Description is required</span>
+        </div>
+        <div *ngIf="editCourseForm.controls['courseDescription'].errors.minlength">
+          <span class="text-sm text-red-500 font-medium py-2">Description needs to have at least 20 characters</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-8 p-2 border border-gray-800 rounded text-gray-200">
+      <quill-editor
+        (onContentChanged)="contentChanged($event)"
+        theme="bubble" [placeholder]="placeholder"></quill-editor>
+    </div>
+    <div class="p-8 text-gray-900 bg-white ql-editor" id="scroll" [innerHTML]="livePreview"></div>
+
+    <div class="px-8 pt-4">
+      <button [disabled]="!editCourseForm.valid" type="submit"
+              class="bg-gray-400 text-gray-900 rounded px-4 py-2 hover:bg-gray-500 font-medium">
+        Update Course
+      </button>
+    </div>
+
+  </form>
+</div>
