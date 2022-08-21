@@ -1,12 +1,12 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 divide">
   <div class="flex flex-col items-stretch pb-16">
     <div class="px-8 pb-8">
-      <h1 class="font-bold text-gray-300 text-xl">{{isUpdate ? 'Update Course' : 'Create new Course'}}</h1>
+      <h1 class="font-bold text-zinc-300 text-xl">{{isUpdate ? 'Update Course' : 'Create new Course'}}</h1>
     </div>
     <form [formGroup]="courseForm" (ngSubmit)="createOrUpdateCourse()">
       <div class="flex flex-col items-stretch px-8 pb-4">
-        <label for="course-title" class="pb-1 px-2 font-medium text-sm text-gray-500">Title </label>
-        <input class="bg-gray-800 text-gray-200 rounded h-12 px-2" id="course-title" type="text"
+        <label for="course-title" class="pb-1 px-2 font-medium text-sm text-zinc-500">Title </label>
+        <input class="bg-zinc-800 text-zinc-200 rounded h-12 px-2" id="course-title" type="text"
                formControlName="courseTitle">
 
         <div
@@ -22,9 +22,9 @@
       </div>
 
       <div class="flex flex-col items-stretch px-8 pb-4">
-        <label for="course-short-description" class="pb-1 px-2 font-medium text-sm text-gray-500">Short
+        <label for="course-short-description" class="pb-1 px-2 font-medium text-sm text-zinc-500">Short
           Description</label>
-        <input id="course-short-description" class="bg-gray-800 text-gray-200 rounded h-12 px-2" type="text"
+        <input id="course-short-description" class="bg-zinc-800 text-zinc-200 rounded h-12 px-2" type="text"
                formControlName="courseShortDescription">
 
         <div
@@ -41,8 +41,8 @@
       </div>
 
       <div class="flex flex-col items-stretch px-8 pb-4">
-        <label for="course-description" class="pb-1 px-2 font-medium text-sm text-gray-500">Description</label>
-        <div class="px-2 py-4 border border-gray-800 rounded text-gray-200 bg-gray-800">
+        <label for="course-description" class="pb-1 px-2 font-medium text-sm text-zinc-500">Description</label>
+        <div class="px-2 py-4 border border-gray-800 rounded text-zinc-200 bg-zinc-800">
           <quill-editor
             id="course-description"
             formControlName="courseDescription"
@@ -63,7 +63,7 @@
 
       <div class="px-8 pt-4">
         <button [disabled]="!courseForm.valid" type="submit"
-                class="bg-gray-400 text-gray-900 rounded px-4 py-2 hover:bg-gray-500 font-medium">
+                class="bg-emerald-700 hover:bg-emerald-800 text-white rounded px-4 py-2 font-medium cursor-pointer">
           {{isUpdate ? 'Update' : 'Create'}} Course
         </button>
       </div>
@@ -72,13 +72,13 @@
   </div>
   <div class="px-8 pb-8">
     <div class="pb-4">
-      <h1 class="font-bold text-gray-100 text-3xl text-center">{{getDraftTitle()}}</h1>
+      <h1 class="font-bold text-zinc-100 text-3xl text-center">{{getDraftTitle()}}</h1>
     </div>
     <div class="pb-8">
-      <h2 class="font-medium text-gray-300 text-center">{{getDraftShortDescription()}}</h2>
+      <h2 class="font-medium text-zinc-300 text-center">{{getDraftShortDescription()}}</h2>
     </div>
 
-    <quill-view-html class="text-gray-300 p-0"
+    <quill-view-html class="text-zinc-300 p-0"
                      [content]="getDraftDescription()"
                      theme="snow"></quill-view-html>
   </div>

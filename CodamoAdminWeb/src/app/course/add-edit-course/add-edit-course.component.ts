@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CourseService} from '../../services/course.service';
-import {CreateCourseRequest} from '../../model/create-course-request';
-import {CourseResponse} from '../../model/course-response';
-import {UpdateCourseRequest} from '../../model/update-course-request';
+import {CreateCourseRequest} from '../../model/course/create-course-request';
+import {CourseResponse} from '../../model/course/course-response';
+import {UpdateCourseRequest} from '../../model/course/update-course-request';
 
 @Component({
   selector: 'app-add-edit-course',

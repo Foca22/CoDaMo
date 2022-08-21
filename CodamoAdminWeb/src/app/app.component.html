@@ -1,6 +1,10 @@
-<div class="min-h-screen bg-gray-900">
+<div *ngIf="loading">
+  <span>Loading</span>
+</div>
+
+<div class="min-h-screen bg-zinc-900">
   <div class="max-w-7xl mx-auto pb-8">
-    <app-header></app-header>
+    <app-header *ngIf="isLoggedIn()"></app-header>
     <router-outlet></router-outlet>
   </div>
 </div>

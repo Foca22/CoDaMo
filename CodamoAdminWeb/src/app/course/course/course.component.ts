@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CourseResponse} from '../../model/course-response';
+import {CourseResponse} from '../../model/course/course-response';
 import {CourseService} from '../../services/course.service';
 import {ActivatedRoute} from '@angular/router';
 import * as Quill from 'Quill';

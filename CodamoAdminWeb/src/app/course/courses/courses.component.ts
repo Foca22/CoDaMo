@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CourseResponse} from '../../model/course-response';
+import {CourseResponse} from '../../model/course/course-response';
 import {CourseService} from '../../services/course.service';
 
 @Component({
@@ -15,7 +15,6 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseService.getCourses().subscribe(courses => {
-      console.log(courses);
       this.courses = courses;
     });
   }

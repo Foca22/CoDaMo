@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {CourseResponse} from '../model/course-response';
-import {CreateCourseRequest} from '../model/create-course-request';
-import {UpdateCourseRequest} from '../model/update-course-request';
+import {CourseResponse} from '../model/course/course-response';
+import {CreateCourseRequest} from '../model/course/create-course-request';
+import {UpdateCourseRequest} from '../model/course/update-course-request';
+import {AuthenticationService} from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,44 +15,18 @@ export class CourseService {
   }
 
   public getCourses(): Observable<Array<CourseResponse>> {
-    return this.httpClient.get<Array<CourseResponse>>('/admin/course',
-      {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + environment.accessToken
-        }),
-        withCredentials: true
-      });
+    return this.httpClient.get<Array<CourseResponse>>('/admin/course');
   }
 
   public getCourse(id: string): Observable<CourseResponse> {
-    return this.httpClient.get<CourseResponse>('/admin/course/' + id,
-      {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + environment.accessToken
-        }),
-        withCredentials: true
-      });
+    return this.httpClient.get<CourseResponse>('/admin/course/' + id);
   }
 
   public createCourse(createCourseRequest: CreateCourseRequest): Observable<CourseResponse> {
-    return this.httpClient.post<CourseResponse>('/admin/course/',
-      createCourseRequest,
-      {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + environment.accessToken
-        }),
-        withCredentials: true
-      });
+    return this.httpClient.post<CourseResponse>('/admin/course/', createCourseRequest);
   }
 
   public updateCourse(updateCourseRequest: UpdateCourseRequest): Observable<CourseResponse> {
-    return this.httpClient.put<CourseResponse>('/admin/course/',
-      updateCourseRequest,
-      {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + environment.accessToken
-        }),
-        withCredentials: true
-      });
+    return this.httpClient.put<CourseResponse>('/admin/course/', updateCourseRequest);
   }
 }

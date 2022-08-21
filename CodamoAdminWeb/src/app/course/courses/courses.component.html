@@ -1,19 +1,19 @@
 <div class="flex flex-col items-stretch">
   <div class="p-8">
-    <h1 class="font-bold text-gray-300 text-xl">Courses</h1>
+    <h1 class="font-bold text-zinc-300 text-xl">Courses</h1>
   </div>
 
-  <a routerLink="/courses/{{course.id}}" class="px-8 py-4 hover:bg-gray-800 cursor-pointer" *ngFor="let course of courses">
+  <a routerLink="/courses/{{course.id}}" class="px-8 py-4 hover:bg-zinc-800 cursor-pointer" *ngFor="let course of courses">
     <div class="pb-2">
-      <span class="font-medium text-gray-400">{{course.title}}</span>
+      <span class="font-medium text-zinc-400">{{course.title}}</span>
     </div>
     <div class="flex flex-column">
-      <span class="font-small text-gray-500">{{course.shortDescription}}</span>
+      <span class="font-small text-zinc-500">{{course.shortDescription}}</span>
     </div>
   </a>
 
   <div class="p-8">
-    <a routerLink="/courses/create" class="bg-gray-400 text-gray-900 rounded px-4 py-2 hover:bg-gray-500 font-medium">Add
+    <a routerLink="/courses/create" class="bg-emerald-700 hover:bg-emerald-800 text-white cursor-pointer rounded px-4 py-2 font-medium">Add
       Course</a>
   </div>
 </div>
