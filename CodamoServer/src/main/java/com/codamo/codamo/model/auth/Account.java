@@ -1,15 +1,21 @@
 package com.codamo.codamo.model.auth;
 
+import com.codamo.codamo.model.status.UserChapterStatus;
+import com.codamo.codamo.model.status.UserCourseStatus;
+import com.codamo.codamo.model.status.UserLessonStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Builder
 @AllArgsConstructor
+@Table(name = "account")
 public class Account {
 
     @Id
@@ -37,6 +43,15 @@ public class Account {
     private String fcmToken;
 
     private boolean verified;
+
+    @OneToMany()
+    private Set<UserCourseStatus> courseStatuses = new HashSet<>();
+
+    @OneToMany()
+    private Set<UserChapterStatus> chapterStatuses = new HashSet<>();
+
+    @OneToMany()
+    private Set<UserLessonStatus> lessonStatuses = new HashSet<>();
 
     @ElementCollection
     @CollectionTable(name="Authorities", joinColumns=@JoinColumn(name="user_id"))
@@ -132,5 +147,29 @@ public class Account {
 
     public void setAuthorities(List<String> authorities) {
         this.authorities = authorities;
+    }
+
+    public Set<UserCourseStatus> getCourseStatuses() {
+        return courseStatuses;
+    }
+
+    public void setCourseStatuses(Set<UserCourseStatus> courseStatuses) {
+        this.courseStatuses = courseStatuses;
+    }
+
+    public Set<UserChapterStatus> getChapterStatuses() {
+        return chapterStatuses;
+    }
+
+    public void setChapterStatuses(Set<UserChapterStatus> chapterStatuses) {
+        this.chapterStatuses = chapterStatuses;
+    }
+
+    public Set<UserLessonStatus> getLessonStatuses() {
+        return lessonStatuses;
+    }
+
+    public void setLessonStatuses(Set<UserLessonStatus> lessonStatuses) {
+        this.lessonStatuses = lessonStatuses;
     }
 }

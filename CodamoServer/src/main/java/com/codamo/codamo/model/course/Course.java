@@ -1,9 +1,13 @@
-package com.codamo.codamo.model;
+package com.codamo.codamo.model.course;
 
+import com.codamo.codamo.model.chapter.Chapter;
+import com.codamo.codamo.model.status.UserCourseStatus;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Course {
@@ -15,9 +19,6 @@ public class Course {
 
     private String title;
 
-    private String shortDescription;
-
-    @Lob
     private String description;
 
     private float price;
@@ -30,6 +31,12 @@ public class Course {
 
     @Enumerated(EnumType.STRING)
     private CourseState courseState;
+
+    @OneToMany(mappedBy = "course")
+    private Set<Chapter> chapters = new HashSet<>();
+
+    @OneToMany(mappedBy = "course")
+    private Set<UserCourseStatus> userCourseStatuses = new HashSet<>();
 
     public Course() {
         price = 0;
@@ -93,14 +100,6 @@ public class Course {
 
     public void setDiscountExpiration(Instant discountExpiration) {
         this.discountExpiration = discountExpiration;
-    }
-
-    public String getShortDescription() {
-        return shortDescription;
-    }
-
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
     }
 
     public CourseState getCourseState() {
