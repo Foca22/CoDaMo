@@ -21,6 +21,7 @@ public class Course {
 
     private String shortDescription;
 
+    @Lob
     private String description;
 
     private float price;

@@ -19,6 +19,7 @@ public class Lesson {
     @Column(name = "lesson_id", updatable = false, nullable = false)
     private String id;
 
+    @Lob
     private String title;
 
     private LessonType type;

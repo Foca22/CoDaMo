@@ -24,7 +24,7 @@ public class UserLessonStatus {
 
     private Instant finishedAt;
 
-    //private String solution;
+    private String solution;
 
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
@@ -83,5 +83,13 @@ public class UserLessonStatus {
 
     public void setLesson(Lesson lesson) {
         this.lesson = lesson;
+    }
+
+    public String getSolution() {
+        return solution;
+    }
+
+    public void setSolution(String solution) {
+        this.solution = solution;
     }
 }
