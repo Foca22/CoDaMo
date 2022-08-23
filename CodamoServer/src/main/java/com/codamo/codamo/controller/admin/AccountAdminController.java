@@ -15,8 +15,12 @@ import javax.validation.Valid;
 @RequestMapping("/admin/account")
 public class AccountAdminController {
 
+    private final AccountAdminService accountAdminService;
+
     @Autowired
-    AccountAdminService accountAdminService;
+    public AccountAdminController(AccountAdminService accountAdminService){
+        this.accountAdminService = accountAdminService;
+    }
 
     @PostMapping()
     ResponseEntity<?> createAccount(@Valid @RequestBody CreateAccountByAdminRequest createAccountByAdminRequest) {

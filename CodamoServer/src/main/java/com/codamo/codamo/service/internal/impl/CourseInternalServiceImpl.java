@@ -15,8 +15,12 @@ import java.util.Optional;
 @Service
 public class CourseInternalServiceImpl implements CourseInternalService {
 
+    private final CourseRepo courseRepo;
+
     @Autowired
-    CourseRepo courseRepo;
+    public CourseInternalServiceImpl(CourseRepo courseRepo) {
+        this.courseRepo = courseRepo;
+    }
 
     @Override
     public Course findCourseById(String id) throws CourseNotFoundException {

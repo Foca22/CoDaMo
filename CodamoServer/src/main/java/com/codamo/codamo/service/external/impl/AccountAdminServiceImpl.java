@@ -19,11 +19,15 @@ import java.util.stream.Collectors;
 @Service
 public class AccountAdminServiceImpl implements AccountAdminService {
 
-    @Autowired
-    private AccountRepo accountRepo;
+    private final AccountRepo accountRepo;
+
+    private final AccountInternalService accountInternalService;
 
     @Autowired
-    private AccountInternalService accountInternalService;
+    public AccountAdminServiceImpl(AccountRepo accountRepo, AccountInternalService accountInternalService) {
+        this.accountRepo = accountRepo;
+        this.accountInternalService = accountInternalService;
+    }
 
     @Override
     public AccountResponse createAccount(CreateAccountByAdminRequest createAccountByAdminRequest) {

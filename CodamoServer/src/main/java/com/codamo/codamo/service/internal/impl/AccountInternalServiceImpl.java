@@ -33,11 +33,15 @@ public class AccountInternalServiceImpl implements AccountInternalService {
         return bCryptPasswordEncoder();
     }
 
-    @Autowired
-    RefreshTokenRepo refreshTokenRepo;
+    private final RefreshTokenRepo refreshTokenRepo;
+
+    private final TokenProvider tokenProvider;
 
     @Autowired
-    TokenProvider tokenProvider;
+    public AccountInternalServiceImpl(RefreshTokenRepo refreshTokenRepo, TokenProvider tokenProvider) {
+        this.refreshTokenRepo = refreshTokenRepo;
+        this.tokenProvider = tokenProvider;
+    }
 
     @Override
     public AccountResponse toAccountResponse(Account account) {

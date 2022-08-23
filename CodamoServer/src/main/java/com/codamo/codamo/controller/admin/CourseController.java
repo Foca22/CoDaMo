@@ -5,6 +5,7 @@ import com.codamo.codamo.dto.course.request.UpdateCourseRequest;
 import com.codamo.codamo.dto.course.response.CourseResponse;
 import com.codamo.codamo.dto.exceptions.course.CourseNotFoundException;
 import com.codamo.codamo.service.external.CourseService;
+import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,12 @@ import java.util.List;
 @RequestMapping("/admin/course")
 public class CourseController {
 
+    private final CourseService courseService;
+
     @Autowired
-    CourseService courseService;
+    public CourseController(CourseService courseService){
+        this.courseService = courseService;
+    }
 
     @PostMapping()
     ResponseEntity<?> createCourse(@RequestBody CreateCourseRequest createCourseRequest) {

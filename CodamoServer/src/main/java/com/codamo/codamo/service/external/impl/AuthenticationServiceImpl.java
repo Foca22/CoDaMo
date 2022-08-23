@@ -29,18 +29,23 @@ import java.util.UUID;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    @Autowired
-    private AccountRepo accountRepo;
+
+    private final AccountRepo accountRepo;
+
+    private final RefreshTokenRepo refreshTokenRepo;
+
+    private final EmailVerificationRepo emailVerificationRepo;
+
+    private final AccountInternalService accountInternalService;
 
     @Autowired
-    private RefreshTokenRepo refreshTokenRepo;
-
-    @Autowired
-    private EmailVerificationRepo emailVerificationRepo;
-
-    @Autowired
-    private AccountInternalService accountInternalService;
-
+    public AuthenticationServiceImpl(AccountRepo accountRepo, RefreshTokenRepo refreshTokenRepo,
+                                     EmailVerificationRepo emailVerificationRepo, AccountInternalService accountInternalService) {
+        this.accountRepo = accountRepo;
+        this.refreshTokenRepo = refreshTokenRepo;
+        this.emailVerificationRepo = emailVerificationRepo;
+        this.accountInternalService = accountInternalService;
+    }
 //    @Autowired
 //    private MailService mailService;
 

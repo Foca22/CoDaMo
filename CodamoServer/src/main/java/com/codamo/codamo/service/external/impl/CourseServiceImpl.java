@@ -19,11 +19,15 @@ import java.util.stream.Collectors;
 @Service
 public class CourseServiceImpl implements CourseService {
 
-    @Autowired
-    private CourseRepo courseRepo;
+    private final CourseRepo courseRepo;
+
+    private final CourseInternalService courseInternalService;
 
     @Autowired
-    private CourseInternalService courseInternalService;
+    public CourseServiceImpl(CourseRepo courseRepo, CourseInternalService courseInternalService){
+        this.courseRepo = courseRepo;
+        this.courseInternalService = courseInternalService;
+    }
 
     @Override
     public CourseResponse createCourse(CreateCourseRequest createCourseRequest) {
