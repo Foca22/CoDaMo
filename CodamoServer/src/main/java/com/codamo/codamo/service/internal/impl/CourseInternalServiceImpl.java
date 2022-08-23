@@ -2,7 +2,7 @@ package com.codamo.codamo.service.internal.impl;
 
 import com.codamo.codamo.dto.exceptions.course.CourseNotFoundException;
 import com.codamo.codamo.dto.course.response.CourseResponse;
-import com.codamo.codamo.model.Course;
+import com.codamo.codamo.model.course.Course;
 import com.codamo.codamo.repo.CourseRepo;
 import com.codamo.codamo.service.internal.CourseInternalService;
 import org.springframework.beans.factory.annotation.Autowired;

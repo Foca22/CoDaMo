@@ -1,6 +1,6 @@
 package com.codamo.codamo.dto.course.response;
 
-import com.codamo.codamo.model.CourseState;
+import com.codamo.codamo.model.course.CourseState;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

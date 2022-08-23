@@ -3,7 +3,7 @@ package com.codamo.codamo.config;
 import com.codamo.codamo.dto.auth.response.AuthorizationResponse;
 import com.codamo.codamo.model.auth.Account;
 import com.codamo.codamo.model.auth.RefreshToken;
-import com.codamo.codamo.model.Course;
+import com.codamo.codamo.model.course.Course;
 import com.codamo.codamo.repo.account.AccountRepo;
 import com.codamo.codamo.repo.account.RefreshTokenRepo;
 import com.codamo.codamo.repo.CourseRepo;

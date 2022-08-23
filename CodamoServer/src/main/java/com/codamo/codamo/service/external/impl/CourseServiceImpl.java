@@ -5,7 +5,7 @@ import com.codamo.codamo.dto.exceptions.course.CourseNotFoundException;
 import com.codamo.codamo.dto.course.request.CreateCourseRequest;
 import com.codamo.codamo.dto.course.request.UpdateCourseRequest;
 import com.codamo.codamo.dto.course.response.CourseResponse;
-import com.codamo.codamo.model.Course;
+import com.codamo.codamo.model.course.Course;
 import com.codamo.codamo.repo.CourseRepo;
 import com.codamo.codamo.service.external.CourseService;
 import com.codamo.codamo.service.internal.CourseInternalService;
