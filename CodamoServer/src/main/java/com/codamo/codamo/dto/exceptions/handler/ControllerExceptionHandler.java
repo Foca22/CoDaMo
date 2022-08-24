@@ -2,7 +2,9 @@ package com.codamo.codamo.dto.exceptions.handler;
 
 import com.codamo.codamo.dto.error.ErrorDto;
 import com.codamo.codamo.dto.exceptions.chapter.ChapterNotFoundException;
+import com.codamo.codamo.dto.exceptions.comment.CommentNotFoundException;
 import com.codamo.codamo.dto.exceptions.course.CourseNotFoundException;
+import com.codamo.codamo.dto.exceptions.lesson.LessonNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -26,6 +28,18 @@ public class ControllerExceptionHandler {
     @ExceptionHandler({CourseNotFoundException.class})
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ErrorDto handleCourseNotFoundException(Exception exception) {
+        return handleBaseException(exception, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler({LessonNotFoundException.class})
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ErrorDto handleLessonNotFoundException(Exception exception){
+        return handleBaseException(exception, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler({CommentNotFoundException.class})
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ErrorDto handleCommentNotFoundException(Exception exception) {
         return handleBaseException(exception, HttpStatus.NOT_FOUND);
     }
 
