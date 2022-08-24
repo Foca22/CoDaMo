@@ -2,6 +2,7 @@ package com.codamo.codamo.service.internal.impl;
 
 import com.codamo.codamo.dto.exceptions.course.CourseNotFoundException;
 import com.codamo.codamo.dto.course.response.CourseResponse;
+import com.codamo.codamo.dto.exceptions.messages.ExceptionMessages;
 import com.codamo.codamo.model.course.Course;
 import com.codamo.codamo.repo.CourseRepo;
 import com.codamo.codamo.service.internal.CourseInternalService;
@@ -26,7 +27,8 @@ public class CourseInternalServiceImpl implements CourseInternalService {
     public Course findCourseById(String id) throws CourseNotFoundException {
         Optional<Course> projectOptional = courseRepo.findById(id);
         if (projectOptional.isEmpty()) {
-            throw new CourseNotFoundException("Course not found!");
+            throw new CourseNotFoundException(ExceptionMessages.COURSE_NOT_FOUND.getErrorMessage(),
+                    ExceptionMessages.COURSE_NOT_FOUND.getHttpStatusCode());
         }
         return projectOptional.get();
     }

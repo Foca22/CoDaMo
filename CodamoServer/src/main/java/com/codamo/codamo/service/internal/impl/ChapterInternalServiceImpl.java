@@ -2,7 +2,9 @@ package com.codamo.codamo.service.internal.impl;
 
 import com.codamo.codamo.dto.chapter.response.ChapterResponse;
 import com.codamo.codamo.dto.exceptions.chapter.ChapterNotFoundException;
+import com.codamo.codamo.dto.exceptions.messages.ExceptionMessages;
 import com.codamo.codamo.model.chapter.Chapter;
+import com.codamo.codamo.model.course.Course;
 import com.codamo.codamo.repo.ChapterRepo;
 import com.codamo.codamo.service.internal.ChapterInternalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,8 @@ public class ChapterInternalServiceImpl implements ChapterInternalService {
     public Chapter findChapterById(String id) throws ChapterNotFoundException {
         Optional<Chapter> chapterOptional = chapterRepo.findById(id);
         if(chapterOptional.isEmpty()){
-            throw new ChapterNotFoundException("Chapter not found!");
+            throw new ChapterNotFoundException(ExceptionMessages.CHAPTER_NOT_FOUND.getErrorMessage(),
+                    ExceptionMessages.CHAPTER_NOT_FOUND.getHttpStatusCode());
         }
         return chapterOptional.get();
     }
@@ -34,8 +37,9 @@ public class ChapterInternalServiceImpl implements ChapterInternalService {
         return new ChapterResponse(
                 chapter.getId(),
                 chapter.getTitle(),
+                chapter.getDescription(),
                 chapter.getShortDescription(),
-                chapter.getDescription()
+                chapter.getCourse().getId()
         );
     }
 }

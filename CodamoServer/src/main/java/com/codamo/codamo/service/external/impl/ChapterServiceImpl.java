@@ -3,8 +3,10 @@ package com.codamo.codamo.service.external.impl;
 import com.codamo.codamo.dto.chapter.request.CreateChapterRequest;
 import com.codamo.codamo.dto.chapter.request.UpdateChapterRequest;
 import com.codamo.codamo.dto.chapter.response.ChapterResponse;
+import com.codamo.codamo.dto.course.response.CourseResponse;
 import com.codamo.codamo.dto.exceptions.chapter.ChapterNotFoundException;
 import com.codamo.codamo.model.chapter.Chapter;
+import com.codamo.codamo.model.course.Course;
 import com.codamo.codamo.repo.ChapterRepo;
 import com.codamo.codamo.service.external.ChapterService;
 import com.codamo.codamo.service.internal.ChapterInternalService;
@@ -30,11 +32,12 @@ public class ChapterServiceImpl implements ChapterService {
 
 
     @Override
-    public ChapterResponse createChapter(CreateChapterRequest createChapterRequest) {
+    public ChapterResponse createChapter(CreateChapterRequest createChapterRequest, Course course) {
         Chapter chapter = new Chapter();
         chapter.setTitle(createChapterRequest.getTitle());
         chapter.setShortDescription(createChapterRequest.getShortDescription());
         chapter.setDescription(createChapterRequest.getDescription());
+        chapter.setCourse(course);
         Chapter savedChapter = chapterRepo.save(chapter);
 
         return chapterInternalService.toChapterResponse(savedChapter);

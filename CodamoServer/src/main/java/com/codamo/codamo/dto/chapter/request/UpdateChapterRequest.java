@@ -1,4 +1,4 @@
-package com.codamo.codamo.dto.chapter.response;
+package com.codamo.codamo.dto.chapter.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChapterResponse {
+public class UpdateChapterRequest {
 
     private String id;
 
@@ -16,6 +16,4 @@ public class ChapterResponse {
     private String description;
 
     private String shortDescription;
-
-    private String courseId;
 }

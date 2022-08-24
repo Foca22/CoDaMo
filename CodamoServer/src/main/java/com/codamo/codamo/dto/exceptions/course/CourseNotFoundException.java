@@ -1,8 +1,14 @@
 package com.codamo.codamo.dto.exceptions.course;
 
-public class CourseNotFoundException extends Exception {
+import com.codamo.codamo.dto.exceptions.handler.BaseException;
 
-    public CourseNotFoundException(String message) {
-        super(message);
+public class CourseNotFoundException extends BaseException {
+
+    public CourseNotFoundException(String message, String errorCode) {
+        super(message, errorCode);
+    }
+
+    public CourseNotFoundException(String message, Throwable cause, String errorCode) {
+        super(message, cause, errorCode);
     }
 }
