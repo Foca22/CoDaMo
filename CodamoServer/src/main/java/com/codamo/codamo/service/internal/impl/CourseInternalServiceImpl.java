@@ -44,7 +44,6 @@ public class CourseInternalServiceImpl implements CourseInternalService {
                 project.getDiscount(),
                 project.getNewPrice(),
                 LocalDateTime.ofInstant(project.getDiscountExpiration(), ZoneId.systemDefault()),
-                project.getCourseState()
-        );
+                project.getCourseState());
     }
 }
