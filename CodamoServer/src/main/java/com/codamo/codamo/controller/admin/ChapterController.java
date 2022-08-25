@@ -54,7 +54,7 @@ public class ChapterController {
     }
 
     @PutMapping()
-    ResponseEntity updateChapter(UpdateChapterRequest updateChapterRequest) {
+    ResponseEntity updateChapter(@RequestBody UpdateChapterRequest updateChapterRequest) {
         try {
             ChapterResponse chapterResponse = chapterService.updateChapter(updateChapterRequest);
             return ResponseEntity.ok(chapterResponse);
